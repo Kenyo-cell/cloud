@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: Kenyo
+      changes:
+        - sqlFile:
+            path: "db/changelog/changes/DBInit.sql"

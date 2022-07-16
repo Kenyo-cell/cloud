@@ -1,0 +1,4 @@
+POSTGRES_USER=kenyo
+POSTGRES_PASS=kenyo_pass
+POSTGRES_DB=neto
+POSTGRES_URL=jdbc:postgresql://localhost:5432/${POSTGRES_DB}

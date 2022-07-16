@@ -1,0 +1,16 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: "${POSTGRES_USER}"
+    password: "${POSTGRES_PASS}"
+    driver-class-name: org.postgresql.Driver
+    url: "${POSTGRES_URL}"
+  liquibase:
+    enabled: true
+    change-log: "classpath:db/changelog/db.changelog-master.yaml"
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: none
