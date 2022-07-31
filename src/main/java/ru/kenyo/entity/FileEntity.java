@@ -1,9 +1,6 @@
 package ru.kenyo.entity;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
@@ -11,7 +8,10 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@ToString
+@Table(name = "file")
 @NoArgsConstructor
+@AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class FileEntity {
     @Id
