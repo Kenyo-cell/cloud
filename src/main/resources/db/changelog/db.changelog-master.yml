@@ -4,5 +4,17 @@ databaseChangeLog:
       id: 1
       author: Kenyo
       changes:
-        - sqlFile:
-            path: "db/changelog/changes/DBInit.sql"
+        - createTable:
+            tableName: FILE
+            columns:
+              - column:
+                  name: filename
+                  type: varchar
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: content
+                  type: varbinary
+                  constraints:
+                    nullable: false
