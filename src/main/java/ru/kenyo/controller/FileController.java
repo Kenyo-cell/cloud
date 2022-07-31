@@ -5,6 +5,9 @@ import lombok.SneakyThrows;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import ru.kenyo.dto.FilePreviewDTO;
+import ru.kenyo.dto.UpdateFilenameDTO;
+import ru.kenyo.entity.FileEntity;
 import ru.kenyo.service.FileService;
 
 import java.util.List;
@@ -22,7 +25,7 @@ public class FileController {
     }
 
     @GetMapping("file")
-    public ResponseEntity<?> getFile(@RequestParam String filename) {
+    public ResponseEntity<FileEntity> downloadFile(@RequestParam String filename) {
         return ResponseEntity.ok().body(service.getFile(filename));
     }
 
@@ -33,13 +36,14 @@ public class FileController {
     }
 
     @PutMapping("file")
-    public ResponseEntity<?> updateFile(@RequestParam String filename, @RequestBody String name) {
-        service.updateFile(filename, name);
+    public ResponseEntity<?> updateFile(@RequestParam String filename,
+                                        @RequestBody UpdateFilenameDTO updateFilenameDTO) {
+        service.updateFile(filename, updateFilenameDTO.filename());
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("list")
-    public ResponseEntity<List<?>> getFiles(@RequestParam(required = false) Integer limit) {
+    public ResponseEntity<List<FilePreviewDTO>> getFiles(@RequestParam(required = false) Integer limit) {
         return ResponseEntity.ok().body(service.getFiles(limit));
     }
 }
