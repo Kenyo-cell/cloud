@@ -2,10 +2,10 @@ package ru.kenyo.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import ru.kenyo.exception.AuthorizationException;
 import ru.kenyo.dto.ExceptionDTO;
 import ru.kenyo.exception.BadRequestException;
 
@@ -21,7 +21,8 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ExceptionDTO(e.getMessage()));
     }
 
-    public ResponseEntity<ExceptionDTO> handleUnauthorized(AuthorizationException e) {
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<ExceptionDTO> handleUnauthorized(AuthenticationException e) {
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ExceptionDTO(e.getMessage()));
     }
 }

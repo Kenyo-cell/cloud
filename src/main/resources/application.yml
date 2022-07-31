@@ -17,3 +17,9 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
+
+jwt:
+  public:
+    key: classpath:/rsa.pub.pem
+  private:
+    key: classpath:/rsa.pem
