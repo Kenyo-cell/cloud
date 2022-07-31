@@ -1,4 +1,4 @@
-POSTGRES_USER=kenyo
-POSTGRES_PASS=kenyo_pass
-POSTGRES_DB=neto
-POSTGRES_URL=jdbc:postgresql://localhost:5432/${POSTGRES_DB}
+DB_USER=kenyo
+DB_PASS=kenyo_pass
+DB_NAME=neto
+DB_URL=jdbc:h2:mem:${DB_NAME};INIT=CREATE SCHEMA IF NOT EXISTS ${DB_NAME};DB_CLOSE_DELAY=-1

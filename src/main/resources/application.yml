@@ -3,14 +3,17 @@ server:
 
 spring:
   datasource:
-    username: "${POSTGRES_USER}"
-    password: "${POSTGRES_PASS}"
-    driver-class-name: org.postgresql.Driver
-    url: "${POSTGRES_URL}"
+    username: "${DB_USER}"
+    password: "${DB_PASS}"
+    driver-class-name: org.h2.Driver
+    url: "${DB_URL}"
+    hikari:
+      connection-init-sql: "SET SCHEMA ${DB_NAME}"
   liquibase:
     enabled: true
-    change-log: "classpath:db/changelog/db.changelog-master.yaml"
+    change-log: "classpath:db/changelog/db.changelog-master.yml"
+    default-schema: "${DB_NAME}"
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: none
