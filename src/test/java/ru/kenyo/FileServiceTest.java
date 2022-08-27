@@ -1,16 +1,11 @@
 package ru.kenyo;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import ru.kenyo.dto.FilePreviewDTO;
 import ru.kenyo.entity.FileEntity;
 import ru.kenyo.exception.BadRequestException;
 import ru.kenyo.repository.FileRepository;
@@ -19,7 +14,6 @@ import ru.kenyo.service.FileService;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @SpringBootTest
 public class FileServiceTest {
